@@ -9,23 +9,24 @@ import Foundation
 struct Country: Decodable, Identifiable {
     let currencies: [Currency]
     let languages: [Language]
-    let name: String
+    let name, nativeName: String
     let topLevelDomain: [String]
     let alpha2Code: String
     let callingCodes: [String]
     let capital, region: String
     let population: Int
-    let borders: [String]
     var id: String { alpha2Code }
 }
 
 // MARK: - Currency
-struct Currency: Decodable {
+struct Currency: Decodable, Identifiable {
     let code, name, symbol: String
+    var id: String { code }
 }
 
 // MARK: - Language
-struct Language: Decodable {
+struct Language: Decodable, Identifiable {
     let name: String
     let nativeName: String?
+    var id: String { name }
 }
