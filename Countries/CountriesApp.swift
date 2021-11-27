@@ -11,7 +11,9 @@ import SwiftUI
 struct CountriesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let countryService = CountryService()
+            let viewModel = CountryViewModel(countryService: countryService)
+            ContentView(viewModel: viewModel)
         }
     }
 }
