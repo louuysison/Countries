@@ -17,6 +17,7 @@ public final class CountryService: NSObject {
     
     public func loadCountriesData(_ completionHandler: @escaping((Countries) -> Void)) {
         self.completionHandler = completionHandler
+        //make API request
         makeDataRequest()
     }
     

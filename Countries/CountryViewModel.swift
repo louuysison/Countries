@@ -17,10 +17,9 @@ public class CountryViewModel: ObservableObject {
     }
     
     public func refresh() {
-        print("IN REFRESH")
         countryService.loadCountriesData { countries in
+            //use main async queue to avoid UI bottleneck
             DispatchQueue.main.async {
-                print("IN ASYNC")
                 self.countries = countries
             }
         }

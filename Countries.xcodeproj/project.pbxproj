@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55BFE148275252BF0074212C /* CountriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFE147275252BF0074212C /* CountriesApp.swift */; };
-		55BFE14A275252BF0074212C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFE149275252BF0074212C /* ContentView.swift */; };
+		55BFE14A275252BF0074212C /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFE149275252BF0074212C /* CountryView.swift */; };
 		55BFE14C275252C20074212C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BFE14B275252C20074212C /* Assets.xcassets */; };
 		55BFE14F275252C20074212C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55BFE14E275252C20074212C /* Preview Assets.xcassets */; };
 		55BFE159275252C20074212C /* CountriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFE158275252C20074212C /* CountriesTests.swift */; };
@@ -40,7 +40,7 @@
 /* Begin PBXFileReference section */
 		55BFE144275252BF0074212C /* Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BFE147275252BF0074212C /* CountriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesApp.swift; sourceTree = "<group>"; };
-		55BFE149275252BF0074212C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		55BFE149275252BF0074212C /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
 		55BFE14B275252C20074212C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55BFE14E275252C20074212C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		55BFE154275252C20074212C /* CountriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +104,7 @@
 			children = (
 				55BFE1712752539C0074212C /* API */,
 				55BFE147275252BF0074212C /* CountriesApp.swift */,
-				55BFE149275252BF0074212C /* ContentView.swift */,
+				55BFE149275252BF0074212C /* CountryView.swift */,
 				55BFE14B275252C20074212C /* Assets.xcassets */,
 				55BFE14D275252C20074212C /* Preview Content */,
 				55BFE17427525E3B0074212C /* Countries.swift */,
@@ -277,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55BFE14A275252BF0074212C /* ContentView.swift in Sources */,
+				55BFE14A275252BF0074212C /* CountryView.swift in Sources */,
 				55BFE17727525ECE0074212C /* CountryService.swift in Sources */,
 				55BFE173275253B40074212C /* API.swift in Sources */,
 				55BFE179275260E70074212C /* CountryViewModel.swift in Sources */,
@@ -440,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Countries/Preview Content\"";
@@ -468,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Countries/Preview Content\"";

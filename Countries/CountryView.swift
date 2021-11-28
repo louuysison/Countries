@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CountryView.swift
 //  Countries
 //
 //  Created by Lou Allen Uy Sison on 11/27/21.
@@ -7,52 +7,52 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CountryView: View {
     
     @ObservedObject var viewModel: CountryViewModel
     
-    @State private var selectedCountry = ""
+    @State private var selectedCountryCode = ""
     
     var body: some View {
 
         VStack {
             if(viewModel.countries.countries.count > 0) {
                 NavigationView {
-                    VStack {
-                        Form {
-                            Section {
-                                Picker("Country", selection: $selectedCountry) {
-                                    ForEach(viewModel.countries.countries) { country in
-                                        Text(country.name)
-                                    }
+                    Form {
+                        Section {
+                            Picker("Country", selection: $selectedCountryCode) {
+                                ForEach(viewModel.countries.countries) { country in
+                                    Text(country.name)
                                 }
                             }
-                            
-                            if(selectedCountry.count != 0) {
-                                let selected = viewModel.countries.countries.first(where: { $0.alpha2Code == selectedCountry })!
-                                
-                                CountryDetailSection(selected: selected)
-                                
-                                LanguageSection(languages: selected.languages)
-                                
-                                CurrencySection(currencies: selected.currencies)
-                            }
-                            
                         }
-                        .navigationTitle("Select a country")
+                        
+                        if(selectedCountryCode.count != 0) {
+                            let selected = viewModel.countries.countries.first(where: { $0.alpha2Code == selectedCountryCode })!
+                            
+                            FlagSection(code: selected.alpha2Code)
+                            
+                            CountryDetailSection(selected: selected)
+                            
+                            LanguageSection(languages: selected.languages)
+                            
+                            CurrencySection(currencies: selected.currencies)
+                        }
+                        
                     }
+                    .navigationTitle("Select a country")
                 }
             } else {
                 ProgressView()
             }
-        }.onAppear(perform: viewModel.refresh)
+        }.onAppear(perform: viewModel.refresh) //fetch data when this view appears
     }
 
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: CountryViewModel(countryService: CountryService()))
+        CountryView(viewModel: CountryViewModel(countryService: CountryService()))
     }
 }
 
@@ -63,6 +63,25 @@ struct BackgroundView: View {
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
             .edgesIgnoringSafeArea(.bottom)
+    }
+}
+
+struct FlagSection: View {
+    
+    var code: String
+    
+    var body: some View {
+        Section(header: Text("Country Flag")) {
+            HStack {
+                Spacer()
+                Image(code.lowercased())
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 75)
+                Spacer()
+            }
+            .padding(.vertical)
+        }.listRowBackground(Color("flagBackground")) //need special color to show black on flags with dark mode and white on flags with light mode
     }
 }
 
@@ -122,9 +141,8 @@ struct LanguageSection: View {
                     Text(language.name)
                     Spacer()
                     Text(language.nativeName!)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color(.secondaryLabel))
                 }
-                
             }
         }
     }
@@ -141,8 +159,8 @@ struct CurrencySection: View {
                     Text(currency.name)
                     Spacer()
                     Text(currency.symbol)
+                        .foregroundColor(Color(.secondaryLabel))
                 }
-                
             }
         }
     }

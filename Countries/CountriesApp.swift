@@ -13,7 +13,7 @@ struct CountriesApp: App {
         WindowGroup {
             let countryService = CountryService()
             let viewModel = CountryViewModel(countryService: countryService)
-            ContentView(viewModel: viewModel)
+            CountryView(viewModel: viewModel)
         }
     }
 }

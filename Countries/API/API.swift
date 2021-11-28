@@ -15,18 +15,18 @@ struct Country: Decodable, Identifiable {
     let callingCodes: [String]
     let capital, region: String
     let population: Int
-    var id: String { alpha2Code }
+    var id: String { alpha2Code } //use alpha2code for id
 }
 
 // MARK: - Currency
 struct Currency: Decodable, Identifiable {
     let code, name, symbol: String
-    var id: String { code }
+    var id: String { code } //use currency code for id
 }
 
 // MARK: - Language
 struct Language: Decodable, Identifiable {
     let name: String
     let nativeName: String?
-    var id: String { name }
+    var id: String { name } //use language name for id
 }
