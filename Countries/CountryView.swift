@@ -16,6 +16,7 @@ struct CountryView: View {
     var body: some View {
 
         VStack {
+            // only show form after country data is loaded, else show progressview
             if(viewModel.countries.countries.count > 0) {
                 NavigationView {
                     Form {
