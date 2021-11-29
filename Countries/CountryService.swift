@@ -24,7 +24,7 @@ public final class CountryService: NSObject {
     private func makeDataRequest() {
         // create urlString
         guard let urlString =
-                "https://restcountries.com/v2/all?fields=name,nativeName,alpha2Code,alpha3Code,topLevelDomain,callingCodes,capital,region,continent,population,borders,currencies,languages"
+                "https://restcountries.com/v2/all?fields=name,nativeName,alpha2Code,topLevelDomain,callingCodes,capital,region,population,currencies,languages"
                 .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         // convert urlString to url
         guard let url = URL(string: urlString) else { return }
